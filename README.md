@@ -6,7 +6,7 @@ The report includes plots comparing the simulated knee flexion-extension angles 
 
 The report is updated with each new patient run through the simulation, and mean simulation results are provided, plotting the mean and 95% confidence intervals for all individual-level plots. All visualizations are written to the 'COMAK/results/project_id/graphics' directory and can be easily accessed.
 
-Check out the [example simulation report](example_report.html) for a detailed demonstration.
+Check out the [example simulation report](example_report.html) for a detailed demonstration (download and open it in your browser).
 
 ## Prerequisites
 
