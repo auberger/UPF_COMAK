@@ -8,7 +8,7 @@ The report is updated with each new patient run through the simulation, and mean
 
 Check out the following demonstration of the [example simulation report](COMAK_Simulation_Results.html):
 
-[SimTK](report_demo.gif)
+![Demo](report_demo.gif)
 
 ## Prerequisites
 
