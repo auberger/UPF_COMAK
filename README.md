@@ -1,6 +1,12 @@
 # COMAK Simulation Workflow
 
-This repository contains the necessary tools and data to run the COMAK (Concurrent Optimization of Muscle Activations and Kinematics) simulation. This workflow is designed for Windows, leveraging OpenSim for musculoskeletal modeling and MATLAB for scripting and analysis. Follow the steps below to set up your environment and run the simulation.
+This repository contains the tools and data to analyze gait patterns, such as those of knee osteoarthritis (KOA) patients, using the Helen Hayes marker protocol. The marker set can be adjusted if needed. This workflow has been automated to make it user-friendly and potentially useful in clinical settings. The results are visualized in a comprehensive and intuitive way and are concisely summarized in an HTML report. This report includes GIFs visualizing knee kinematics and contact pressures over one gait cycle, synchronized with plots of total, medial, and lateral mean and max contact pressures as well as the total, medial, and lateral contact areas. It also provides extensive joint mechanics analyses, including center of pressure, contact force, and reaction moments for the total, medial, and lateral compartments of the knee for all three degrees of freedom. Both patellofemoral and tibiofemoral kinematics are available for all six degrees of freedom.
+
+The report includes plots comparing the simulated knee flexion-extension angles with motion capture angles, complete with measures of agreement such as mean absolute error (MAE), max error, correlation, and Bland-Altman plot. The inverse kinematics (IK) error for the simulated results is also provided. It’s easy to investigate muscle activations from all muscles included in the model (right leg only), and reserve actuators can also be easily checked. Muscle activations are compared to four experimental EMG signals (tibialis anterior, vastus lateralis, gastrocnemius lateralis, and biceps femoris caput longus) from the subjects, and a cross-correlation analysis is performed.
+
+The report is updated with each new patient run through the simulation, and mean simulation results are provided, plotting the mean and 95% confidence intervals for all individual-level plots. All visualizations are written to the 'COMAK/results/project_id/graphics' directory and can be easily accessed.
+
+Check out the [example simulation report](example_report.html) for a detailed demonstration.
 
 ## Prerequisites
 
@@ -21,7 +27,7 @@ Download the ZIP file from this GitHub repository, which includes the code and f
 ### Step 2: Install OpenSim and MATLAB
 
 1. **OpenSim**: Install any OpenSim version. This will be used to manually scale the generic model in the GUI.
-2. **MATLAB**: Install MATLAB, any version will work.
+2. **MATLAB**: Install MATLAB; any version will work.
 
 ### Step 3: Configure OpenSim API in MATLAB
 
@@ -70,13 +76,13 @@ Download the ZIP file from this GitHub repository, which includes the code and f
    matlab -r "main_comak_workflow_function('absolute_path_to_data_folder'); exit"
    ```
 
-### Detailed Information About COMAK
+## Detailed Information About COMAK
 
-#### Overview of COMAK Workflow
+### Overview of COMAK Workflow
 
 **Concurrent Optimization of Muscle Activations and Kinematics (COMAK)** is a sophisticated computational approach integrated into the OpenSim-Joint Articular Mechanics (JAM) toolkit. It is designed to enhance the fidelity of musculoskeletal (MSK) simulations by concurrently optimizing muscle activations and joint kinematics. This approach is particularly valuable for studying dynamic joint mechanics, such as those involved in walking, and has applications in understanding and treating knee osteoarthritis (KOA).
 
-#### Components and Models
+### Components and Models
 
 **OpenSim JAM** incorporates various force component plugins, models, and simulation tools to accurately represent joint mechanics:
 
@@ -120,7 +126,7 @@ Download the ZIP file from this GitHub repository, which includes the code and f
 ### Validation and Applications
 
 **Proof of Concept**:
-- Mohout et al., 2023, demonstrated the proof of concept for this approach, validating the kinematics and dynamics of the model against experimental data.
+- [Mohout et al., 2023](https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2023.1214693/full), demonstrated the proof of concept for this approach, validating the kinematics and dynamics of the model against experimental data.
 
 **Validation of Kinematics**:
 - The model's kinematics were validated by comparing simulation outputs with observed joint angles during walking.
@@ -134,11 +140,11 @@ Download the ZIP file from this GitHub repository, which includes the code and f
 **Sensitivity Analysis**:
 - A sensitivity analysis is planned to evaluate the influence of subject-specific loading and boundary conditions, using a statistical shape model to assess sensitivity to geometry, alignment, cartilage thickness, and other factors.
 
-**Uncertainty and Peer Review**:
-- Identifying uncertainty is challenging due to unknowns in many input parameters. The approach has not yet undergone peer review.
+**Uncertainty**:
+- Identifying uncertainty is challenging due to unknowns in many input parameters.
 
 **Generalizability**:
-- Testing the generalizability of the workflow with other independent datasets and instrumented patients for validation is planned but not yet completed.
+- Testing the generalizability of the workflow with other independent datasets and instrumented patients for validation is planned but not yet completed
 
 **Forward Dynamic Simulation**:
 - The output of COMAK can be used to drive forward dynamic simulations for further analysis.
