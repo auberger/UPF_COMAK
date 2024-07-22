@@ -188,15 +188,70 @@ function create_report()
     % How to Use COMAK Section
     fprintf(fid, '<section id="How_to_Use_COMAK">\n');
     fprintf(fid, '<h2>How to Use COMAK</h2>\n');
-    fprintf(fid, '<p>To use the COMAK tool, follow these steps:</p>\n');
-    fprintf(fid, '<ol>\n');
-    fprintf(fid, '<li>Prepare your musculoskeletal model in OpenSim.</li>\n');
-    fprintf(fid, '<li>Set up the COMAK tool and configure the necessary settings.</li>\n');
-    fprintf(fid, '<li>Run the COMAK simulation to compute joint contact mechanics.</li>\n');
-    fprintf(fid, '<li>Analyze the results, which include joint contact pressures, muscle activations, and reserve actuator forces.</li>\n');
-    fprintf(fid, '</ol>\n');
-    fprintf(fid, '</section>\n');
+    fprintf(fid, '<p>This workflow is designed to run on Windows, leveraging OpenSim for musculoskeletal modeling and MATLAB for scripting and analysis. Follow the steps below to set up your environment and run the COMAK simulation:</p>\n');
     
+    fprintf(fid, '<h3>Prerequisites</h3>\n');
+    fprintf(fid, '<ul>\n');
+    fprintf(fid, '<li><strong>Windows OS</strong></li>\n');
+    fprintf(fid, '<li><strong>OpenSim</strong> (used to scale the generic model manually in the GUI): Download from <a href="https://simtk.org/frs/?group_id=91">SimTK</a>.</li>\n');
+    fprintf(fid, '<li><strong>MATLAB</strong> (any version): Follow the installation guide <a href="https://ch.mathworks.com/help/install/ug/install-products-with-internet-connection.html">here</a>.</li>\n');
+    fprintf(fid, '<li><strong>Miniconda</strong>: Download from <a href="https://docs.anaconda.com/miniconda/">Miniconda</a>.</li>\n');
+    fprintf(fid, '</ul>\n');
+    
+    fprintf(fid, '<h3>Setup Instructions</h3>\n');
+    
+    fprintf(fid, '<h4>Step 1: Download the Repository</h4>\n');
+    fprintf(fid, '<p>Download the ZIP file from this GitHub repository, which includes the code and folder structure.</p>\n');
+    
+    fprintf(fid, '<h4>Step 2: Install OpenSim and MATLAB</h4>\n');
+    fprintf(fid, '<p><strong>OpenSim</strong>: Install any OpenSim version. This will be used to manually scale the generic model in the GUI.</p>\n');
+    fprintf(fid, '<p><strong>MATLAB</strong>: Install MATLAB, any version will work.</p>\n');
+    
+    fprintf(fid, '<h4>Step 3: Configure OpenSim API in MATLAB</h4>\n');
+    fprintf(fid, '<p>Extract the downloaded ZIP file, which includes the following:</p>\n');
+    fprintf(fid, '<ul>\n');
+    fprintf(fid, '<li>OpenSim version with COMAK tools.</li>\n');
+    fprintf(fid, '<li>MATLAB and Python scripts for running the simulation and visualizing results.</li>\n');
+    fprintf(fid, '<li>Example data of 3 patients for simulation.</li>\n');
+    fprintf(fid, '</ul>\n');
+    
+    fprintf(fid, '<p>Open MATLAB and configure the OpenSim API by following the instructions <a href="https://opensimconfluence.atlassian.net/wiki/spaces/OpenSim/pages/53089380/Scripting+with+Matlab">here</a>:</p>\n');
+    fprintf(fid, '<ul>\n');
+    fprintf(fid, '<li>The configuration file is located at <code>opensim-core-4.3-2021-06-27-54b40380c/COMAK/matlab_scripts/fconfigureOpenSim.m</code>.</li>\n');
+    fprintf(fid, '<li>When prompted, choose the installation directory <code>opensim-core-4.3-2021-06-27-54b40380c\\bin</code>.</li>\n');
+    fprintf(fid, '<li>Add <code>opensim-core-4.3-2021-06-27-54b40380c\\bin</code> to your system PATH environment variable.</li>\n');
+    fprintf(fid, '</ul>\n');
+    
+    fprintf(fid, '<p>You may need to install the following MATLAB toolboxes:</p>\n');
+    fprintf(fid, '<ul>\n');
+    fprintf(fid, '<li>Control System Toolbox</li>\n');
+    fprintf(fid, '<li>Curve Fitting Toolbox</li>\n');
+    fprintf(fid, '<li>Image Processing Toolbox</li>\n');
+    fprintf(fid, '<li>Signal Processing Toolbox</li>\n');
+    fprintf(fid, '<li>Statistics and Machine Learning Toolbox</li>\n');
+    fprintf(fid, '</ul>\n');
+    
+    fprintf(fid, '<h4>Step 4: Create Python Environment for ParaView</h4>\n');
+    fprintf(fid, '<ul>\n');
+    fprintf(fid, '<li>Install Miniconda from <a href="https://docs.anaconda.com/miniconda/">Miniconda</a>.</li>\n');
+    fprintf(fid, '<li>Open a command prompt and create a conda environment named <code>paraview-env</code>:</li>\n');
+    fprintf(fid, '<pre><code>conda create --name paraview-env</code></pre>\n');
+    fprintf(fid, '<li>Activate the environment:</li>\n');
+    fprintf(fid, '<pre><code>conda activate paraview-env</code></pre>\n');
+    fprintf(fid, '<li>Install ParaView:</li>\n');
+    fprintf(fid, '<pre><code>conda install -c conda-forge paraview</code></pre>\n');
+    fprintf(fid, '<li>Install the tqdm library for progress bars:</li>\n');
+    fprintf(fid, '<pre><code>pip install tqdm</code></pre>\n');
+    fprintf(fid, '</ul>\n');
+    
+    fprintf(fid, '<h4>Step 5: Run the Simulation</h4>\n');
+    fprintf(fid, '<ul>\n');
+    fprintf(fid, '<li>Open a command line in the data folder. Navigate to the folder <code>opensim-core-4.3-2021-06-27-54b40380c\\COMAK\\data</code> and type <code>cmd</code> in the path bar to open a command prompt at that location.</li>\n');
+    fprintf(fid, '<li>Run the following command in the command prompt, replacing <code>absolute_path_to_data_folder</code> with your absolute path to the <code>opensim-core-4.3-2021-06-27-54b40380c\\COMAK\\data</code> folder:</li>\n');
+    fprintf(fid, '<pre><code>matlab -r "main_comak_workflow_function(''absolute_path_to_data_folder''); exit"</code></pre>\n');
+    fprintf(fid, '</ul>\n');
+    fprintf(fid, '</section>\n');
+        
     % Conclusion Section
     fprintf(fid, '<section id="Conclusion">\n');
     fprintf(fid, '<h2>Conclusion</h2>\n');
