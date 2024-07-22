@@ -86,7 +86,7 @@ Download the ZIP file from this GitHub repository, which includes the code and f
 
 ![Overview](COMAK/data/images_for_visualizations/COMAK_workflow.png)
 
-*Figure adapted by Colin Smith. Source: [GitHub Repository](https://github.com/clnsmith/opensim-jam/tree/master/opensim-jam-release/examples/walking)*
+*Figure adapted from Colin Smith. Source: [GitHub Repository](https://github.com/clnsmith/opensim-jam/tree/master/opensim-jam-release/examples/walking)*
 
 ### Components and Models
 
