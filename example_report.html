@@ -1,0 +1,158 @@
+<html>
+<head>
+<title>What is COMAK?</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 0; background-color: #e0e0e0; }
+nav { background-color: #333; position: fixed; top: 0; width: 100%; }
+nav a { color: white; text-decoration: none; display: inline-block; padding: 10px; }
+nav a.mean-result-page { background-color: #fff; color: #8B0000; }
+nav a:hover { background-color: #ddd; color: black; }
+nav a.main-page { background-color: #fff; color: #8B0000; }
+nav select { margin-left: 10px; padding: 5px; }
+section { padding: 20px 20px 20px 40px; margin: 30px 0; border-radius: 8px; background-color: white; }
+p, h1, h2, h3, h4, h5, h6 { margin-left: 0; }
+.image-container { text-align: center; margin-top: 20px; }
+</style>
+<script>
+function goToPatientReport() {
+  var select = document.getElementById("patientSelect");
+  var selectedValue = select.options[select.selectedIndex].value;
+  if (selectedValue) {
+    window.location.href = selectedValue;
+  }
+}
+</script>
+</head>
+<body>
+<nav>
+  <a href="#introduction">Introduction</a>
+  <a href="#components">Components and Models</a>
+  <a href="#workflow">Workflow</a>
+  <a href="#validation">Validation and Applications</a>
+<a href="#How_to_Use_COMAK">How to Use COMAK</a>
+<a href="#Conclusion">Conclusion</a>
+  <a href="mean_results.html" class="mean-result-page">Mean Simulation Results</a>
+<select id="patientSelect" onchange="goToPatientReport()">
+<option value="">Select Patient</option>
+<option value="STRATO_001_results.html">STRATO_001</option>
+<option value="STRATO_004_results.html">STRATO_004</option>
+<option value="STRATO_016_results.html">STRATO_016</option>
+
+</select>
+</nav>
+nav a.main-page { background-color: #fff; color: #8B0000; }
+<div style="text-align:center; padding-top: 70px; padding-bottom: 20px; background-color: #8B0000; color: white; border-bottom: 2px solid #ccc;">
+<h1 style="margin: 0; font-size: 2.5em;">What is COMAK?</h1>
+</div>
+<section id="introduction">
+<h2 style="font-size: 2em; color: #333; margin-bottom: 10px;">Introduction to COMAK</h2>
+<p>Concurrent Optimization of Muscle Activations and Kinematics (COMAK) is a sophisticated computational approach integrated into the OpenSim-Joint Articular Mechanics (JAM) toolkit. It is designed to enhance the fidelity of musculoskeletal (MSK) simulations by concurrently optimizing muscle activations and joint kinematics. This approach is particularly valuable for studying dynamic joint mechanics, such as those involved in walking, and has applications in understanding and treating knee osteoarthritis (KOA).</p>
+<div class="image-container">
+<img src="../data/images_for_visualizations/COMAK_workflow.png" alt="COMAK Workflow" style="max-width:100%; height:auto;">
+</div>
+</section>
+<section id="components">
+<h2 style="font-size: 2em; color: #333; margin-bottom: 10px;">Components and Models</h2>
+<p>OpenSim JAM incorporates various force component plugins, models, and simulation tools to accurately represent joint mechanics:</p>
+<ul>
+<li><b>Blankevoort1991Ligament:</b> Simulates ligament behavior using a spring-damper model, capturing both the nonlinear and linear response of ligament fibers.</li>
+<li><b>Smith2018ArticularContactForce and Smith2018ContactMesh:</b> Represents articular contact using triangular mesh geometries and an elastic foundation model to calculate contact pressures.</li>
+</ul>
+<p><b>Models:</b></p>
+<ul>
+<li><b>Lenhart2015 Model:</b> This model includes detailed representations of the tibiofemoral and patellofemoral joints as 6-degree-of-freedom (DOF) joints, utilizing the Smith2018ArticularContactForce for cartilage contact and Blankevoort1991Ligaments for ligaments.</li>
+</ul>
+<p><b>Simulation Tools:</b></p>
+<ul>
+<li><b>COMAKInverseKinematics and COMAK:</b> These tools implement the COMAK algorithm to calculate muscle forces and detailed joint mechanics during dynamic movements.</li>
+<li><b>JointMechanicsTool:</b> Enables detailed analysis of joint mechanics simulations, generating files for visualization and further analysis in MATLAB, Python, or HDF View.</li>
+</ul>
+</section>
+<section id="workflow">
+<h2 style="font-size: 2em; color: #333; margin-bottom: 10px;">COMAK Workflow</h2>
+<ol>
+<li><b>Knee Model Construction:</b> Develop a personalized knee model based on imaging data, integrated with a comprehensive MSK model that includes bones, muscles, and ligaments.</li>
+<li><b>Data Collection:</b> Gather experimental data through gait analysis, tracking marker trajectories and measuring ground reaction forces.</li>
+<li><b>Inverse Kinematics:</b> Use the collected data to compute primary joint angles and movements using inverse kinematics algorithms.</li>
+<li><b>Prescribed Flexion Forward Simulation:</b> Conduct a forward simulation with prescribed joint flexion to estimate initial secondary kinematic variables.</li>
+<li><b>Initialization Forward Simulation:</b> Refine secondary kinematic variables through an initialization simulation, preparing for the optimization process.</li>
+<li><b>Optimization:</b> Apply the COMAK algorithm to concurrently optimize muscle activations and secondary kinematics. The goal is to minimize the sum of weighted muscle activations squared while ensuring that predicted kinematics closely match observed data. COMAK predicts secondary coordinates based on model parameters and estimated muscle and ligament forces, considering muscle forces, ligament forces, joint geometry, and gravity for more realistic joint contact forces.</li>
+<li><b>Monte Carlo Neuromuscular Coordination (Optional):</b> Execute high-throughput computing simulations to generate probabilistic predictions of knee mechanics over multiple gait cycles.</li>
+<li><b>Output Analysis:</b> The optimized outputs include knee kinematics, muscle activations, and joint contact forces, which are crucial for understanding the mechanical environment of the knee joint.</li>
+</ol>
+</section>
+<section id="validation">
+<h2 style="font-size: 2em; color: #333; margin-bottom: 10px;">Validation and Applications</h2>
+<ul>
+<li><b>Proof of Concept:</b> Mohout et al., 2023, demonstrated the proof of concept for this approach.</li>
+<li><b>Validation of Kinematics:</b> The kinematics of the model were validated by comparing simulation outputs with observed joint angles during walking.</li>
+<li><b>Validation of Dynamics:</b> Muscle activations predicted by the model were compared with electromyography (EMG) data, showing good agreement.</li>
+<li><b>Reproducibility:</b> The reproducibility of results was tested using different trials of a patient, showing consistent outputs.</li>
+<li><b>Sensitivity Analysis:</b> A sensitivity analysis is planned to evaluate the influence of subject-specific loading and boundary conditions, using a statistical shape model to assess sensitivity to geometry, alignment, cartilage thickness, and other factors.</li>
+<li><b>Uncertainty:</b> Identifying uncertainty is challenging due to unknowns in many input parameters.</li>
+<li><b>Generalizability:</b> Testing the generalizability of the workflow with other independent datasets and instrumented patients for validation is planned but not yet completed.</li>
+<li><b>Forward Dynamic Simulation:</b> The output of COMAK can be used to drive forward dynamic simulations for further analysis.</li>
+</ul>
+</section>
+<section id="How_to_Use_COMAK">
+<h2>How to Use COMAK</h2>
+<p>This workflow is designed to run on Windows, leveraging OpenSim for musculoskeletal modeling and MATLAB for scripting and analysis. Follow the steps below to set up your environment and run the COMAK simulation:</p>
+<h3>Prerequisites</h3>
+<ul>
+<li><strong>Windows OS</strong></li>
+<li><strong>OpenSim</strong> (used to scale the generic model manually in the GUI): Download from <a href="https://simtk.org/frs/?group_id=91">SimTK</a>.</li>
+<li><strong>MATLAB</strong> (any version): Follow the installation guide <a href="https://ch.mathworks.com/help/install/ug/install-products-with-internet-connection.html">here</a>.</li>
+<li><strong>Miniconda</strong>: Download from <a href="https://docs.anaconda.com/miniconda/">Miniconda</a>.</li>
+</ul>
+<h3>Setup Instructions</h3>
+<h4>Step 1: Download the Repository</h4>
+<p>Download the ZIP file from this GitHub repository, which includes the code and folder structure.</p>
+<h4>Step 2: Install OpenSim and MATLAB</h4>
+<p><strong>OpenSim</strong>: Install any OpenSim version. This will be used to manually scale the generic model in the GUI.</p>
+<p><strong>MATLAB</strong>: Install MATLAB, any version will work.</p>
+<h4>Step 3: Configure OpenSim API in MATLAB</h4>
+<p>Extract the downloaded ZIP file, which includes the following:</p>
+<ul>
+<li>OpenSim version with COMAK tools.</li>
+<li>MATLAB and Python scripts for running the simulation and visualizing results.</li>
+<li>Example data of 3 patients for simulation.</li>
+</ul>
+<p>Open MATLAB and configure the OpenSim API by following the instructions <a href="https://opensimconfluence.atlassian.net/wiki/spaces/OpenSim/pages/53089380/Scripting+with+Matlab">here</a>:</p>
+<ul>
+<li>The configuration file is located at <code>opensim-core-4.3-2021-06-27-54b40380c/COMAK/matlab_scripts/fconfigureOpenSim.m</code>.</li>
+<li>When prompted, choose the installation directory <code>opensim-core-4.3-2021-06-27-54b40380c\bin</code>.</li>
+<li>Add <code>opensim-core-4.3-2021-06-27-54b40380c\bin</code> to your system PATH environment variable.</li>
+</ul>
+<p>You may need to install the following MATLAB toolboxes:</p>
+<ul>
+<li>Control System Toolbox</li>
+<li>Curve Fitting Toolbox</li>
+<li>Image Processing Toolbox</li>
+<li>Signal Processing Toolbox</li>
+<li>Statistics and Machine Learning Toolbox</li>
+</ul>
+<h4>Step 4: Create Python Environment for ParaView</h4>
+<ul>
+<li>Install Miniconda from <a href="https://docs.anaconda.com/miniconda/">Miniconda</a>.</li>
+<li>Open a command prompt and create a conda environment named <code>paraview-env</code>:</li>
+<pre><code>conda create --name paraview-env</code></pre>
+<li>Activate the environment:</li>
+<pre><code>conda activate paraview-env</code></pre>
+<li>Install ParaView:</li>
+<pre><code>conda install -c conda-forge paraview</code></pre>
+<li>Install the tqdm library for progress bars:</li>
+<pre><code>pip install tqdm</code></pre>
+</ul>
+<h4>Step 5: Run the Simulation</h4>
+<ul>
+<li>Open a command line in the data folder. Navigate to the folder <code>opensim-core-4.3-2021-06-27-54b40380c\COMAK\data</code> and type <code>cmd</code> in the path bar to open a command prompt at that location.</li>
+<li>Run the following command in the command prompt, replacing <code>absolute_path_to_data_folder</code> with your absolute path to the <code>opensim-core-4.3-2021-06-27-54b40380c\COMAK\data</code> folder:</li>
+<pre><code>matlab -r "main_comak_workflow_function('absolute_path_to_data_folder'); exit"</code></pre>
+</ul>
+</section>
+<section id="Conclusion">
+<h2>Conclusion</h2>
+<p>The COMAK simulation workflow provides detailed insights into joint contact mechanics and muscle activations. The results presented in this report can be used to further understand the biomechanics of knee osteoarthritis and to inform clinical decisions.</p>
+</section>
+</body>
+</html>
