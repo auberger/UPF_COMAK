@@ -84,6 +84,8 @@ Download the ZIP file from this GitHub repository, which includes the code and f
 
 **Concurrent Optimization of Muscle Activations and Kinematics (COMAK)** is a sophisticated computational approach integrated into the OpenSim-Joint Articular Mechanics (JAM) toolkit. It is designed to enhance the fidelity of musculoskeletal (MSK) simulations by concurrently optimizing muscle activations and joint kinematics. This approach is particularly valuable for studying dynamic joint mechanics, such as those involved in walking, and has applications in understanding and treating knee osteoarthritis (KOA).
 
+![Overview](COMAK/data/images_for_visualizations/COMAK_workflow.png)
+
 ### Components and Models
 
 **OpenSim JAM** incorporates various force component plugins, models, and simulation tools to accurately represent joint mechanics:
