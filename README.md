@@ -1,4 +1,4 @@
-# COMAK Simulation Workflow
+# COMAK Workflow Automation and Visualization
 
 This repository contains the tools and data to analyze gait patterns, such as those of knee osteoarthritis (KOA) patients, using the Helen Hayes marker protocol. The marker set can be adjusted if needed. This workflow has been automated to make it user-friendly and potentially useful in clinical settings. The results are visualized in a comprehensive and intuitive way and are concisely summarized in an HTML report. This report includes GIFs visualizing knee kinematics and contact pressures over one gait cycle, synchronized with plots of total, medial, and lateral mean and max contact pressures as well as the total, medial, and lateral contact areas. It also provides extensive joint mechanics analyses, including center of pressure, contact force, and reaction moments for the total, medial, and lateral compartments of the knee for all three degrees of freedom. Both patellofemoral and tibiofemoral kinematics are available for all six degrees of freedom.
 
