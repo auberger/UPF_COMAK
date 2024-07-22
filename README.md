@@ -8,7 +8,9 @@ The report is updated with each new patient run through the simulation, and mean
 
 Check out the following demonstration of the [example simulation report](COMAK_Simulation_Results.html):
 
-![Demo](report_demo.gif)
+![Overview](COMAK/data/images_for_visualizations/COMAK_workflow.png)
+
+*Figure adapted by Colin Smith. Source: [GitHub Repository](https://github.com/clnsmith/opensim-jam/tree/master/opensim-jam-release/examples/walking)*
 
 ## Prerequisites
 
