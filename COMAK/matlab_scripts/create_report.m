@@ -133,6 +133,7 @@ function create_report()
     fprintf(fid, '<p>Concurrent Optimization of Muscle Activations and Kinematics (COMAK) is a sophisticated computational approach integrated into the OpenSim-Joint Articular Mechanics (JAM) toolkit. It is designed to enhance the fidelity of musculoskeletal (MSK) simulations by concurrently optimizing muscle activations and joint kinematics. This approach is particularly valuable for studying dynamic joint mechanics, such as those involved in walking, and has applications in understanding and treating knee osteoarthritis (KOA).</p>\n');
     fprintf(fid, '<div class="image-container">\n');
     fprintf(fid, '<img src="%s" alt="COMAK Workflow" style="max-width:100%%; height:auto;">\n', imagePath);
+    fprintf(fid, '<figcaption style="font-size: 0.9em; color: #666;">Figure adapted from Colin Smith. Source: <a href="https://github.com/clnsmith/opensim-jam/tree/master/opensim-jam-release/examples/walking">opensim-jam GitHub repository</a></figcaption>\n');
     fprintf(fid, '</div>\n');
     fprintf(fid, '</section>\n');
     
