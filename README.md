@@ -39,9 +39,9 @@ Download the ZIP file from this GitHub repository, which includes the code and f
    - Example data of 3 patients for simulation.
    
 2. Open MATLAB and configure the OpenSim API by following the instructions [here](https://opensimconfluence.atlassian.net/wiki/spaces/OpenSim/pages/53089380/Scripting+with+Matlab):
-   - The configuration file is located at `opensim-core-4.3-2021-06-27-54b40380c/COMAK/matlab_scripts/fconfigureOpenSim.m`.
-   - When prompted, choose the installation directory `opensim-core-4.3-2021-06-27-54b40380c\bin`.
-   - Add `opensim-core-4.3-2021-06-27-54b40380c\bin` to your system PATH environment variable.
+   - The configuration file is located at `UPF_COMAK-master/UPF_COMAK-master/COMAK/matlab_scripts/fconfigureOpenSim.m`.
+   - When prompted, choose the installation directory `UPF_COMAK-master/UPF_COMAK-master/bin`.
+   - Add `UPF_COMAK-master/UPF_COMAK-master/bin` to your system PATH environment variable.
 
 3. You may need to install the following MATLAB toolboxes:
    - Control System Toolbox
