@@ -53,19 +53,20 @@ Download the ZIP file from this GitHub repository, which includes the code and f
 ### Step 4: Create Python Environment for ParaView
 
 1. Install Miniconda from [Miniconda](https://docs.anaconda.com/miniconda/).
-2. Open a command prompt and create a conda environment named `paraview-env`:
+2. Add the installation (e.g., `C:\Users\admin\miniconda3\Scripts`) to your system PATH environment variable.  
+3. Open a command prompt and create a conda environment named `paraview-env`:
    ```sh
    conda create --name paraview-env
    ```
-3. Activate the environment:
+4. Activate the environment:
    ```sh
    conda activate paraview-env
    ```
-4. Install ParaView:
+5. Install ParaView:
    ```sh
    conda install -c conda-forge paraview
    ```
-5. Install the tqdm library for progress bars:
+6. Install the tqdm library for progress bars:
    ```sh
    pip install tqdm
    ```
