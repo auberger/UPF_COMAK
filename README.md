@@ -73,8 +73,8 @@ Download the ZIP file from this GitHub repository, which includes the code and f
 
 ### Step 5: Run the Simulation
 
-1. Open a command line in the data folder. Navigate to the folder `opensim-core-4.3-2021-06-27-54b40380c\COMAK\data` and type `cmd` in the path bar to open a command prompt at that location.
-2. Run the following command in the command prompt, replacing `absolute_path_to_data_folder` with your absolute path to the `opensim-core-4.3-2021-06-27-54b40380c\COMAK\data` folder:
+1. Open a command line in the data folder. Navigate to the folder `UPF_COMAK-master/UPF_COMAK-master/COMAK/matlab_scripts` and type `cmd` in the path bar to open a command prompt at that location.
+2. Run the following command in the command prompt, replacing `absolute_path_to_data_folder` with your absolute path to the `UPF_COMAK-master/UPF_COMAK-master/COMAK/data` folder:
    ```sh
    matlab -r "main_comak_workflow_function('absolute_path_to_data_folder'); exit"
    ```
