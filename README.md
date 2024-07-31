@@ -36,7 +36,7 @@ Download the ZIP file from this GitHub repository, which includes the code and f
 1. Extract the downloaded ZIP file, which includes the following:
    - OpenSim version with COMAK tools.
    - MATLAB and Python scripts for running the simulation and visualizing results.
-   - Example data of 3 patients for simulation.
+   - Example data of 1 subject for simulation.
    
 2. Open MATLAB and configure the OpenSim API by following the instructions [here](https://opensimconfluence.atlassian.net/wiki/spaces/OpenSim/pages/53089380/Scripting+with+Matlab):
    - The configuration file is located at `UPF_COMAK-master/UPF_COMAK-master/COMAK/matlab_scripts/fconfigureOpenSim.m`.
@@ -52,7 +52,7 @@ Download the ZIP file from this GitHub repository, which includes the code and f
 
 ### Step 4: Create Python Environment for ParaView
 
-1. Install Miniconda from [Miniconda](https://docs.anaconda.com/miniconda/).
+1. Install Miniconda from [Miniconda](https://docs.anaconda.com/miniconda/) (Anaconda works as well).
 2. Add the installation (e.g., `C:\Users\admin\miniconda3\Scripts`) to your system PATH environment variable.  
 3. Open a command prompt and create a conda environment named `paraview-env`:
    ```sh
